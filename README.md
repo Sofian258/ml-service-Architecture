@@ -31,5 +31,34 @@ Ziel ist eine wiederverwendbare ML-Service-Struktur statt eines einmaligen Skrip
 - Matplotlib  
 - Objektorientierte Architektur  
 
+
+
 ## Projektstruktur
 
+ml-service-architecture/
+├─ ml_modular_system/
+│  ├─ input/
+│  │  ├─ data_reader.py        # Abstrakte Schnittstelle für Datenquellen
+│  │  ├─ excel_adapter.py      # Adapter für Excel-Dateien
+│  │  └─ preprocessing.py     # Datenbereinigung und Vorbereitung
+│  │
+│  ├─ processing/
+│  │  ├─ rules.py              # Regelbasierte Feature-Berechnung
+│  │  ├─ feature_engineering.py# Feature Engineering
+│  │  ├─ ml_strategies.py      # ML-Strategien (z.B. Isolation Forest)
+│  │  ├─ chain_handler.py      # Chain-of-Responsibility für ML-Pipeline
+│  │  └─ pipeline.py           # Zentrale Verarbeitungspipeline
+│  │
+│  ├─ output/
+│  │  ├─ observers.py          # Observer für Visualisierung und Export
+│  │  ├─ plot_adapter.py       # Plot-Logik (Matplotlib)
+│  │  └─ sink_adapter.py       # Adapter für Ausgabekanäle
+│  │
+│  ├─ subject.py               # Zentrales Subject (Observer Pattern)
+│  └─ main.py                  # Einstiegspunkt / Orchestrierung
+│
+├─ docs/
+│  └─ architecture.png         # Architekturdiagramm (EVA + Patterns)
+│
+├─ requirements.txt            # Python-Abhängigkeiten
+└─ README.md                   # Projektbeschreibung
